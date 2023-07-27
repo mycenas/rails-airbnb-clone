@@ -1,0 +1,21 @@
+<h1>Create a New Quest</h1>
+
+<%= form_for @quest do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.label :requirement %>
+  <%= f.text_area :requirement %>
+
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+
+  <%= f.label :reward %>
+  <%= f.number_field :reward %>
+
+  <%= f.submit "Create Quest" %>
+<% end %>
