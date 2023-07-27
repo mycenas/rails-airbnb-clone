@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'quests#index'
+  root to: 'quests#index'
 
   # DM creates a quest
   get 'quests/new', to: 'quests#new', as: 'new_quest'
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   # dm views booking requests
   get '/bookings', to: 'bookings#index'
-  
+
   # dm views a specific booking request
   get '/bookings/:id', to: 'bookings#show'
 
