@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
-  
+
   def view_purse
     # an adventurer can view their purse and see how many coins is inside
     @user = current_user
