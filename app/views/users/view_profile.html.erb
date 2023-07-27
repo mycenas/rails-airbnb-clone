@@ -1,0 +1,23 @@
+<!-- app/views/users/view_profile.html.erb -->
+<h1>User Profile</h1>
+
+<% if @current_action == "view_purse" %>
+  <h2>:: Purse ::</h2>
+  <p>Coins: <%= @coins %></p>
+<% end %>
+
+<% if @current_action == "view_stats" %>
+  <h2>:: Stats ::</h2>
+  <p>Power: <% @user.power %></p>
+  <p>Agility: <% @user.agility %></p>
+  <p>Haste: <% @user.haste %></p>
+<% end %>
+
+<% if @current_action == "view_abilities" %>
+  <h2>:: Abilities ::</h2>
+  <ul>
+    <li>Fire Blast</li>
+    <li>Fire Hurricane</li>
+    <li>Fire Bolt</li>
+  </ul>
+<% end %>

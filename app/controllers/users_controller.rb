@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+before_action :authenticate_user!, except: [:index, :show]
+before_action :set_user, only: [:show, :view_purse, :view_stats, :view_abilities]
+
   def index
     @users = User.all
   end
@@ -6,11 +9,13 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
-  
+
   def view_purse
     # an adventurer can view their purse and see how many coins is inside
     @user = current_user
     @coins = @user.coins
+    @current_action = "view_stats"
+    render "view_profile"
   end
 
   def send_coins
@@ -30,21 +35,23 @@ class UsersController < ApplicationController
     end
   end
 
-  # def view_stats -maybe put on profile page
+  def view_stats
     # an adventurer can view their stats
-  # end
+    @current_action = "view_stats"
+    render "view_profile"
+  end
 
-  # def view_abilities -maybe put on profile page
+  def view_abilities
     # and abilities
-  # end
+    @current_action = "view_abilities"
+    render "view_profile"
+  end
 
-  # def assign_stats
+  # def assign_stats -nice to have
     # a DM can assign stat points to an adventurer once quest is complete
   # end
 
-  # def assign_abilities
+  # def assign_abilities -nice to have
     # and abilities to an adventurer once quest is complete
   # end
 end
-
-# maybe include index and show page
