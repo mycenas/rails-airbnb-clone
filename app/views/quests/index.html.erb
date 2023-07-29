@@ -1,12 +1,14 @@
-  <h1>Quests</h1>
-  <ul class="list-group">
+
+
+<h1>Quests</h1>
+<div class="container" >
     <% @quests.each do |quest| %>
-      <li class="list-group-item"><%= quest.name %></li>
-      <li class="list-group-item"><%= quest.description %></li>
-      <li class="list-group-item"><%= quest.requirement %></li>
-      <li class="list-group-item"><%= quest.location %></li>
-      <li class="list-group-item"><%= quest.reward %></li>
-      <li class="list-group-item"><%= quest.user.username %></li>
+      <h3><%= quest.name %></h3>
+      <p><%= quest.description %></p>
+      <p><strong>Requirement: </strong><%= quest.requirement %></p>
+      <p><strong>Location: </strong><%= quest.location %></p>
+      <p><strong>Reward: </strong><%= quest.reward %></p>
+      <p><strong>User: </strong><%= quest.user.username %></p>
     <% end %>
-  </ul>
+  </div>
   <br>
