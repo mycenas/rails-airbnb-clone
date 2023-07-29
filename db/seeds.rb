@@ -8,8 +8,8 @@
 
 # seed quests
 
-dm1 = User.find_by(username: 'DungeonMaster1')
-dm2 = User.find_by(username: 'DungeonMaster2')
+dm1 = User.create(email:"dm1@dm.com", username: 'DungeonMaster1', password: "123456", role: "role1")
+dm2 = User.create(email: "dm2@dm.com", username: 'DungeonMaster2', password: "abcdefg", role: "role2")
 
 quest11 = Quest.create!(name: "Mysterious Monolith", description: "Investigate the ancient monolith", requirement: "History and magic knowledge", location: "Old Ruins", reward: 500, user: dm1)
 puts "Created quest #{quest11.name} with id #{quest11.id}"
