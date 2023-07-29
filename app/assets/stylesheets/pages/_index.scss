@@ -1,2 +1,13 @@
 // Import page-specific CSS files here.
 @import "home";
+
+h1{
+  color:rgb(140, 49, 182);
+}
+
+.container {
+  background-color: #eeecec;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
