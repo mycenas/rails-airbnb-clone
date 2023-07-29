@@ -1,12 +1,11 @@
 class QuestsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
 
   def index
     @quests = Quest.all
   end
 
   def new
-    @new_quest = Quest.new
+    @quest = Quest.new
   end
 
   def create
