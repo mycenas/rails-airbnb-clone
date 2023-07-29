@@ -9,12 +9,12 @@ class QuestsController < ApplicationController
   end
 
   def create
-    @quest = Quest.new(params[quest_params])
+    @quest = Quest.new(quest_params)
 
     if @quest.save
       flash[:notice] = "Quest was successfully created!"
-      redirect_to quest_path(@quest) # redirect to show page once that's been implemented
-    else
+      redirect_to quest_path(@quest[:id])
+    else 
       render :new
     end
   end
@@ -26,7 +26,7 @@ class QuestsController < ApplicationController
   private
 
   def quest_params
-    params.require(:quest).permit(:name, :description, :requirement, :location, :reward, :user)
+    params.require(:quest).permit(:user_id, :name, :description, :requirement, :location, :reward)
   end
 
 end
