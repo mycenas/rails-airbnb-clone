@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'view_purse/view_stats'
+  get 'view_purse/view_abilities'
   devise_for :users
   root to: 'quests#index'
 
@@ -27,4 +29,9 @@ Rails.application.routes.draw do
   # dm accepts/rejects a booking request
   post '/bookings/:id/accept', to:'bookings#accept', as: 'accept_booking'
   post '/bookings/:id/decline', to: 'bookings#decline', as: 'decline_booking'
+
+  # profile routes
+  get 'profile/purse', to: 'profile#view_purse'
+  get 'profile/stats', to: 'profile#view_stats'
+  get 'profile/abilities', to: 'profile#view_abilities'
 end
