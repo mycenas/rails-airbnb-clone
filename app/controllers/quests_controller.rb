@@ -1,17 +1,22 @@
 class QuestsController < ApplicationController
-  # skip_before_action :authenticate_user!, only: :index
 
   def index
     @quests = Quest.all
   end
 
   def new
-    @new_quest = Quest.new
+    @quest = Quest.new
   end
 
   def create
     @quest = Quest.new(params[quest_params])
-    @quest.save
+
+    if @quest.save
+      flash[:notice] = "Quest was successfully created!"
+      redirect_to quest_path(@quest) # redirect to show page once that's been implemented
+    else
+      render :new
+    end
   end
 
   def show

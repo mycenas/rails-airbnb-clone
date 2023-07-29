@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   # adventurer views specific quest
   get '/quests/:id', to: 'quests#show', as: 'quest'
 
-  #  adventurer books a quest
+  # adventurer views their profile
+  get '/users/:id', to: 'users#show', as: 'user'
+
+  # adventurer books a quest
   get '/quests/:id/bookings/new', to: 'bookings#show', as: 'booking'
 
   # dm views booking requests

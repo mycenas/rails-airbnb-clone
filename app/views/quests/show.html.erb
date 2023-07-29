@@ -1,0 +1,30 @@
+<%# as a user i want to view a specific quest %>
+
+<h1><%= @quest.name %></h1>
+
+<div>
+    <h2>Description</h2>
+      <h3><%= @quest.description %>
+</div>
+
+<div>
+    <h2>Requirement</h2>
+      <h3><%= @quest.requirement %>
+</div>
+
+<div>
+    <h2>Location</h2>
+      <h3><%= @quest.location %>
+</div>
+
+<div>
+    <h2>Reward</h2>
+      <h3><%= @quest.reward %>
+</div>
+
+<div>
+    <h2>Requested by</h2>
+      <h3><%= @quest.user.username %>
+</div>
+
+<%= link_to "Sign Up for Quest", new_booking_path(quest_id: @quest.id), class: "btn btn-primary" %>
