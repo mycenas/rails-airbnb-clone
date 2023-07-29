@@ -7,9 +7,15 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # seed quests
+require 'pry'
 
 dm1 = User.find_by(username: 'DungeonMaster1')
 dm2 = User.find_by(username: 'DungeonMaster2')
+adv = User.find_by(username: 'Adventurer')
+# binding.pry
+user = User.create(username: 'test1', abilities: 'fire blast', class: 'rogue')
+
+user.save
 
 quest11 = Quest.create!(name: "Mysterious Monolith", description: "Investigate the ancient monolith", requirement: "History and magic knowledge", location: "Old Ruins", reward: 500, user: dm1)
 puts "Created quest #{quest11.name} with id #{quest11.id}"
