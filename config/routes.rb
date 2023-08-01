@@ -31,7 +31,5 @@ Rails.application.routes.draw do
   post '/bookings/:id/decline', to: 'bookings#decline', as: 'decline_booking'
 
   # profile routes
-  get 'profile/purse', to: 'profile#view_purse'
-  get 'profile/stats', to: 'profile#view_stats'
-  get 'profile/abilities', to: 'profile#view_abilities'
+  get 'profile', to: 'pages#profile', as: 'profile'
 end
