@@ -23,5 +23,5 @@ class QuestsController < ApplicationController
   def quest_params
     params.require(:quest).permit(:name, :description, :requirement, :location, :reward, :user)
   end
-
 end
+#hello

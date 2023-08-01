@@ -9,11 +9,12 @@
 # seed quests
 require 'pry'
 
-dm1 = User.find_by(username: 'DungeonMaster1')
-dm2 = User.find_by(username: 'DungeonMaster2')
-adv = User.find_by(username: 'Adventurer')
-# binding.pry
-user = User.create(username: 'test1', abilities: 'fire blast', class: 'rogue')
+dm1 = User.create(username: 'DungeonMaster1', email: 'awdjawd@gmail.com', password: '321addawd')
+dm2 = User.create(username: 'DungeonMaster2', email: 'jfejfies3@gmail.com', password: '321312fes')
+adv = User.create(username: 'Adventurer', email: '23213fe@gmail.com', password: '23123efs')
+
+user = User.create!(username: 'test1', role: 'dd', profile: 'aas', purse: 1, email: '12321dadwad@gmail.com', password: 'adasdasd2321@!!$#_awd', level: '33', abilities: 'fire blast', character_class: 'rogue', stats: {'str' => 4, 'dex' => 2, 'int' => 10})
+
 
 user.save
 
