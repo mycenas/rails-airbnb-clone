@@ -5,7 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
+User.destroy_all
+Quest.destroy_all
 # seed quests
 
 dm1 = User.create!(email:"dm1@dm.com", username: 'DungeonMaster1', password: "123456", role: "role1")
