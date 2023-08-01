@@ -9,6 +9,7 @@
 # seed quests
 require 'pry'
 
+<<<<<<< HEAD
 dm1 = User.create(username: 'DungeonMaster1', email: 'awdjawd@gmail.com', password: '321addawd')
 dm2 = User.create(username: 'DungeonMaster2', email: 'jfejfies3@gmail.com', password: '321312fes')
 adv = User.create(username: 'Adventurer', email: '23213fe@gmail.com', password: '23123efs')
@@ -17,6 +18,10 @@ user = User.create!(username: 'test1', role: 'dd', profile: 'aas', purse: 1, ema
 
 
 user.save
+=======
+dm1 = User.create!(email:"dm1@dm.com", username: 'DungeonMaster1', password: "123456", role: "role1")
+dm2 = User.create!(email: "dm2@dm.com", username: 'DungeonMaster2', password: "abcdefg", role: "role2")
+>>>>>>> main
 
 quest11 = Quest.create!(name: "Mysterious Monolith", description: "Investigate the ancient monolith", requirement: "History and magic knowledge", location: "Old Ruins", reward: 500, user: dm1)
 puts "Created quest #{quest11.name} with id #{quest11.id}"

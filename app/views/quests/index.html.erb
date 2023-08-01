@@ -1,1 +1,15 @@
+
+
 <h1>Quests</h1>
+<%= link_to "Create a new quest!", new_quest_path, class: "btn btn-primary" %>
+<div class="container" >
+    <% @quests.each do |quest| %>
+      <h3><%= link_to quest.name, quest_path(quest) %></h3>
+      <p><%= quest.description %></p>
+      <p><strong>Requirement: </strong><%= quest.requirement %></p>
+      <p><strong>Location: </strong><%= quest.location %></p>
+      <p><strong>Reward: </strong><%= quest.reward %></p>
+      <p><strong>User: </strong><%= quest.user.username %></p>
+    <% end %>
+  </div>
+  <br>
