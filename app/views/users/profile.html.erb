@@ -1,0 +1,45 @@
+  <h1>Purse</h1>
+  <ul class="list-group">
+    <% @purse.each do |quest| %>
+      <li class="list-group-item"><%= purse.count %></li>
+    <% end %>
+  </ul>
+  <br>
+
+  <h1>Stats</h1>
+  <ul class="list-group">
+    <% @stats.each do |stats| %>
+      <li class="list-group-item"><%= stats.generate_stats %></li>
+    <% end %>
+  </ul>
+  <br>
+
+  <h1>Abilities</h1>
+  <ul class="list-group">
+    <% @abilities.each do |abilities| %>
+      <li class="list-group-item"><%= abilities.name %></li>
+      <li class="list-group-item"><%= abilities.description %></li>
+      <li class="list-group-item"><%= abilities.damage %></li>
+      <li class="list-group-item"><%= abilities.cooldown %></li>
+    <% end %>
+  </ul>
+  <br>
+
+update user model to ar to capture stats
+adv starting off
+
+stats .random for each adventurer
+stats to model
+seeds users to stats and abilities
+
+add hash of stats, then have kv stats
+
+- user.name
+- user.class
+- user.level
+- user.stats
+- user.abilities
+- user.purse
+
+seed random users and levels
+dm grant level after quest
