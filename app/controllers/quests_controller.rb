@@ -29,4 +29,3 @@ class QuestsController < ApplicationController
     params.require(:quest).permit(:user_id, :name, :description, :requirement, :location, :reward)
   end
 end
-#hello
