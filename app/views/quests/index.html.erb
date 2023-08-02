@@ -1,17 +1,16 @@
-<h1>Quests</h1>
-
-<div class="index-container" >
-    <% @quests.each do |quest| %>
-      <div class="index-container" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"><%= quest.name %></h5>
-        <p class="card-text"><%= truncate(quest.description, length: 120) %></p>
-        <p class="card-text">Class requirement: <%= quest.requirement %></p>
-        <p class="card-text">Reward: <%= quest.reward %> coins </p>
-        <%= link_to 'View Quest', quest_path(quest), class: "btn btn-primary" %>
+<div class="index-container">
+  <% @quests.each do |quest| %>
+    <div class="card-container">
+      <div class="card">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-title"><%= quest.name %></p>
+          <p class="card-text"><%= truncate(quest.description, length: 120) %></p>
+          <p class="card-text">Class requirement: <%= quest.requirement %></p>
+          <p class="card-text">Reward: <%= quest.reward %> coins</p>
+          <%= link_to 'View Quest', quest_path(quest), class: "btn btn-primary" %>
+        </div>
       </div>
     </div>
-    <% end %>
-  </div>
-  <br>
+  <% end %>
+</div>

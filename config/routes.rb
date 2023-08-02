@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'view_purse/view_stats'
-  get 'view_purse/view_abilities'
   devise_for :users
-  root to: 'quests#index'
+  root to: 'pages#home'
 
   # DM creates a quest
   get 'quests/new', to: 'quests#new', as: 'new_quest'
