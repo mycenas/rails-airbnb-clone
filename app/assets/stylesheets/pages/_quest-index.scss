@@ -4,7 +4,8 @@ h1{
 }
 
 .card-title {
-  font-size: 18px;
+  text-align: center;
+  font-size: 22px;
   color:rgb(140, 49, 182)
 }
 
@@ -13,18 +14,29 @@ h1{
   border-radius: 8px;
   margin-bottom: 20px auto;
   background-color: rgba(240, 240, 240, 0);
-  // border: 1px solid #ccc;
   width: 100%;
 }
 
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; 
+}
+
 .card-container {
-  width: 500px;
+  width: calc(33.33% - 20px);
   margin-bottom: 20px; 
 }
 
 .card {
   width: 100%;
+  border-radius: 5px;
 }
+
+.card-img-top {
+    width: 100%;
+    padding: 10px;
+  }
 
 .btn-purple {
   display: inline-block;
@@ -43,4 +55,10 @@ h1{
   position: absolute;
   bottom: 10px;
   right: 10px;
+}
+
+.sort {
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-bottom: 0px;
 }

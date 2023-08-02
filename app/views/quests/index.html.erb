@@ -1,16 +1,25 @@
+<div class="sort">
+  Sort by:
+  <%= link_to 'None', quests_path %>
+  <%= link_to 'Reward (Ascending)', quests_path(sort: 'asc') %>
+  <%= link_to 'Reward (Descending)', quests_path(sort: 'desc') %>
+</div>
+
 <div class="index-container">
-  <% @quests.each do |quest| %>
-    <div class="card-container">
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <p class="card-title"><%= quest.name %></p>
-          <p class="card-text"><%= truncate(quest.description, length: 120) %></p>
-          <p class="card-text"><strong>Class requirement:</strong> <%= quest.requirement %></p>
-          <p class="card-text"><strong>Reward:</strong> <%= quest.reward %> coins <%= display_coins(quest.reward) %></p>
-          <%= link_to 'View Quest', quest_path(quest), class: "btn-purple btn-bottom-right" %>
+  <div class="card-row">
+    <% @quests.each do |quest| %>
+      <div class="card-container">
+        <div class="card">
+          <img src="<%= asset_path('card-placeholder.png') %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-title"><%= quest.name %></p>
+            <p class="card-text"><%= truncate(quest.description, length: 120) %></p>
+            <p class="card-text"><strong>Class requirement:</strong> <%= quest.requirement %></p>
+            <p class="card-text"><strong>Reward:</strong> <%= quest.reward %> coins <%= display_coins(quest.reward) %></p>
+            <%= link_to 'View Quest', quest_path(quest), class: "btn-purple btn-bottom-right" %>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

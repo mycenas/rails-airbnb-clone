@@ -1,7 +1,13 @@
 class QuestsController < ApplicationController
 
   def index
-    @quests = Quest.all
+    if params[:sort] == 'asc'
+      @quests = Quest.order(reward: :asc)
+    elsif params[:sort] == 'desc'
+      @quests = Quest.order(reward: :desc)
+    else
+      @quests = Quest.all
+    end
   end
 
   def new
