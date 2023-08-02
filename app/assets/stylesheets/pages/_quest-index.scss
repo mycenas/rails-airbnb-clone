@@ -22,7 +22,25 @@ h1{
   margin-bottom: 20px; 
 }
 
-/* Optionally, you can set the width of the card itself to 100% to ensure it fills the container */
 .card {
   width: 100%;
+}
+
+.btn-purple {
+  display: inline-block;
+  padding: 5px 5px;
+  background-color: rgb(168, 139, 223);
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn-purple:hover {
+  background-color: rgb(107, 226, 107);
+}
+
+.btn-bottom-right {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }

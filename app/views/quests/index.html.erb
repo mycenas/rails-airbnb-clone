@@ -6,9 +6,9 @@
         <div class="card-body">
           <p class="card-title"><%= quest.name %></p>
           <p class="card-text"><%= truncate(quest.description, length: 120) %></p>
-          <p class="card-text">Class requirement: <%= quest.requirement %></p>
-          <p class="card-text">Reward: <%= quest.reward %> coins</p>
-          <%= link_to 'View Quest', quest_path(quest), class: "btn btn-primary" %>
+          <p class="card-text"><strong>Class requirement:</strong> <%= quest.requirement %></p>
+          <p class="card-text"><strong>Reward:</strong> <%= quest.reward %> coins <%= display_coins(quest.reward) %></p>
+          <%= link_to 'View Quest', quest_path(quest), class: "btn-purple btn-bottom-right" %>
         </div>
       </div>
     </div>
