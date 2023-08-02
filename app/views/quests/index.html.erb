@@ -1,21 +1,16 @@
-<h1>Quests</h1>
-<%= link_to "Create a new quest!", new_quest_path, class: "btn btn-primary" %>
-<br>
-
-<div class="index-container" >
-    <% @quests.each do |quest| %>
-      <div class="index-container" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"><%= quest.name %></h5>
-        <p class="card-text">Description: <br>
-        <%= quest.description %></p>
-        <p class="card-text">Reward: <%= quest.reward %> coins </p>
-        <a href="#" class="btn btn-primary"><%= link_to quest.name, quest_path(quest)%></a>
+<div class="index-container">
+  <% @quests.each do |quest| %>
+    <div class="card-container">
+      <div class="card">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-title"><%= quest.name %></p>
+          <p class="card-text"><%= truncate(quest.description, length: 120) %></p>
+          <p class="card-text">Class requirement: <%= quest.requirement %></p>
+          <p class="card-text">Reward: <%= quest.reward %> coins</p>
+          <%= link_to 'View Quest', quest_path(quest), class: "btn btn-primary" %>
+        </div>
       </div>
     </div>
-    <% end %>
-  </div>
-  <br>
-
-  # Cut the description to a certain amount of text
+  <% end %>
+</div>

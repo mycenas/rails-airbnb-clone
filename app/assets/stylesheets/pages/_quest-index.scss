@@ -3,11 +3,26 @@ h1{
   color:rgb(140, 49, 182);
 }
 
+.card-title {
+  font-size: 18px;
+  color:rgb(140, 49, 182)
+}
+
 .index-container {
-  padding: 20px;
+  padding: 30px;
   border-radius: 8px;
   margin-bottom: 20px auto;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  width: 70%;
+  background-color: rgba(240, 240, 240, 0);
+  // border: 1px solid #ccc;
+  width: 100%;
+}
+
+.card-container {
+  width: 500px;
+  margin-bottom: 20px; 
+}
+
+/* Optionally, you can set the width of the card itself to 100% to ensure it fills the container */
+.card {
+  width: 100%;
 }

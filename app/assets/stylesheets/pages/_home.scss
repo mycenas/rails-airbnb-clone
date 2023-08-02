@@ -1,1 +1,8 @@
 // Specific CSS for your home-page
+
+body {
+  background-image: url("/assets/castle-background.png");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-attachment: fixed;
+}
