@@ -3,12 +3,11 @@
 <h1><%= @quest.name %></h1>
 
 <div>
-    <h2>Description</h2>
       <h3><%= @quest.description %>
 </div>
 
 <div>
-    <h2>Requirement</h2>
+    <h2>Class Requirement</h2>
       <h3><%= @quest.requirement %>
 </div>
 
@@ -19,12 +18,12 @@
 
 <div>
     <h2>Reward</h2>
-      <h3><%= @quest.reward %>
+      <h3><%= @quest.reward %> coins</h3>
 </div>
 
 <div>
-    <h2>Requested by</h2>
-      <h3><%= @quest.user.username %>
+    <h2>Dungeon Master</h2>
+      <h3><%= @quest.user.username.capitalize %>
 </div>
 
 <%= link_to "Return to Quest List", quests_path, class: "btn btn-primary" %>
