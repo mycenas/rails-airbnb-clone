@@ -8,11 +8,10 @@
         class: "form-control",
         placeholder: "Search for a quest..."
       %>
-    <%= submit_tag "Search", name: "", class: "btn-purple" %>
+      <%= submit_tag "Search", name: "", class: "btn-purple" %><%= link_to "Create a new quest!", new_quest_path, class: "btn-purple-search" %>
     <% end %>
     </div>
   </div>
-  <%= link_to "Create a new quest!", new_quest_path, class: "btn-purple" %>
   </div>
 </div>
 
