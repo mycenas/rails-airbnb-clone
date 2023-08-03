@@ -7,6 +7,7 @@
           <p><strong>Level:</strong> <%= @user.level %></p>
           <p><strong>Abilities:</strong> <%= @user.abilities %></p>
           <p><strong>Class:</strong> <%= @user.character_class %></p>
+          <p><strong>Purse:</strong> <%= @user.purse %> coins </p>
           <p><strong>Stats:</strong></p>
           <ul>
             <% @user.stats.each do |attribute, value| %>
