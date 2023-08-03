@@ -1,6 +1,20 @@
 
 
 <h1>Quests</h1>
+<%# SEND BRIAN HERE %>
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: quests_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search for a quest..."
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+<%# SEND BRIAN HERE %>
 <%= link_to "Create a new quest!", new_quest_path, class: "btn btn-primary" %>
 <div class="container" >
     <% @quests.each do |quest| %>

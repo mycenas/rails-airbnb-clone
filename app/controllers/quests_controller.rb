@@ -1,8 +1,14 @@
 class QuestsController < ApplicationController
 
+#SEND BRIAN HERE
   def index
+  if params[:query].present?
+    @quests = Quest.search(params[:query])
+  else
     @quests = Quest.all
   end
+end
+#SEND BRIAN HERE
 
   def new
     @quest = Quest.new
@@ -14,7 +20,7 @@ class QuestsController < ApplicationController
     if @quest.save
       flash[:notice] = "Quest was successfully created!"
       redirect_to quest_path(@quest[:id])
-    else 
+    else
       render :new
     end
   end
