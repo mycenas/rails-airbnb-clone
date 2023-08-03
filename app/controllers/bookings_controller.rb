@@ -41,6 +41,8 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     if @booking.status == 'accepted'
       @booking.update(status: 'completed')
+      @booking.user.purse += @booking.quest.reward
+      @booking.user.save
       redirect_to booking_path(@booking), notice: 'Booking marked as completed'
     else
       redirect_to booking_path(@booking), notice: 'Cannot mark as completed. Booking not accepted yet.'
