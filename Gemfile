@@ -79,3 +79,5 @@ end
 gem "devise"
 
 gem 'httparty'
+
+gem "pg_search"
