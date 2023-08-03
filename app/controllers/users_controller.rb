@@ -12,4 +12,10 @@ class UsersController < ApplicationController
   def destroy
 
   end
+
+  def requests
+    @user = current_user
+    @bookings = Booking.where(quest: @user.quests)
+  end
+
 end

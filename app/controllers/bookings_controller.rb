@@ -26,13 +26,25 @@ class BookingsController < ApplicationController
   end
 
   def accept
-    @booking.update(status: "accepted")
-    redirect_to bookings_path, notice: 'Booking was successfully accepted.'
+    @booking = Booking.find(params[:id])
+    @booking.update(status: 'accepted')
+    redirect_to booking_path(@booking), notice: 'Booking accepted'
   end
 
   def decline
-    @booking.update(status: "declined")
-    redirect_to bookings_path, notice: 'Booking was successfully declined.'
+    @booking = Booking.find(params[:id])
+    @booking.update(status: 'declined')
+    redirect_to booking_path(@booking), notice: 'Booking declined'
+  end
+
+  def complete
+    @booking = Booking.find(params[:id])
+    if @booking.status == 'accepted'
+      @booking.update(status: 'completed')
+      redirect_to booking_path(@booking), notice: 'Booking marked as completed'
+    else
+      redirect_to booking_path(@booking), notice: 'Cannot mark as completed. Booking not accepted yet.'
+    end
   end
 
   private

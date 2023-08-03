@@ -1,0 +1,13 @@
+<h1>My Booking Requests</h1>
+
+<% @bookings.each do |booking| %>
+  <h2><%= link_to booking.quest.name, quest_path(booking.quest) %></h2>
+  <p>Adventurer: <%= booking.user.username %></p>
+  <p>Message: <%= booking.message %></p>
+  <p>Status: <%= booking.status %></p>
+  
+  <% if booking.status == 'pending' %>
+    <%= link_to 'Accept', accept_booking_path(booking), method: :post, class: 'btn btn-success' %>
+    <%= link_to 'Decline', decline_booking_path(booking), method: :post, class: 'btn btn-danger' %>
+  <% end %>
+<% end %>
