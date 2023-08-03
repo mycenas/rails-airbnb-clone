@@ -16,6 +16,7 @@ class QuestsController < ApplicationController
 
   def create
     @quest = Quest.new(quest_params)
+    @quest.user = current_user
 
     if @quest.save
       flash[:notice] = "Quest was successfully created!"

@@ -7,13 +7,16 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @quest = Quest.find(params[:quest_id])
   end
+
 
   def create
     @booking = Booking.new(booking_params)
-
+    @booking.quest = Quest.find(params[:booking][:quest_id])
+    @booking.user = current_user
     if @booking.save
-      redirect_to bookings_path, notice: 'Booking was successfully created.'
+      redirect_to booking_path(@booking), notice: 'Booking was successfully created.'
     else
       render :new
     end
@@ -39,6 +42,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:quest_id, :user_id, :status)
+    params.require(:booking).permit(:status, :quest_id)
   end
 end

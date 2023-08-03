@@ -26,4 +26,5 @@
       <h3><%= @quest.user.username.capitalize %>
 </div>
 
+<%= link_to 'Book Quest', new_booking_path(quest_id: @quest.id), class: 'btn btn-primary' %>
 <%= link_to "Return to Quest List", quests_path, class: "btn btn-primary" %>

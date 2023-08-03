@@ -16,13 +16,14 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
 
   # adventurer books a quest
-  get '/quests/:id/bookings/new', to: 'bookings#show', as: 'booking'
+  get '/quests/:id/bookings/new', to: 'bookings#new', as: 'new_booking'
+  post '/quests/:id/bookings', to: 'bookings#create', as: 'bookings'
 
   # dm views booking requests
   get '/bookings', to: 'bookings#index'
 
   # dm views a specific booking request
-  get '/bookings/:id', to: 'bookings#show'
+  get '/bookings/:id', to: 'bookings#show', as: 'booking'
 
   # dm accepts/rejects a booking request
   post '/bookings/:id/accept', to:'bookings#accept', as: 'accept_booking'

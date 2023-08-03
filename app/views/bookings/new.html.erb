@@ -1,0 +1,24 @@
+<h1>Book Quest</h1>
+
+<%= form_for @booking, url: bookings_path do |f| %>
+  <div class="form-group">
+    <label>Adventurer:</label>
+    <p><%= current_user.username.capitalize %></p>
+
+    <label>Class:</label>
+    <p><%= current_user.character_class %></p>
+
+    <label>Level:</label>
+    <p><%= current_user.level %></p>
+
+    <%= f.hidden_field :quest_id, value: @quest.id %>
+    <%= f.hidden_field :status, value: "pending" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :message, "Message to the DM" %>
+    <%= f.text_area :message, class: "form-control" %>
+  </div>
+
+  <%= f.submit 'Book Quest', class: 'btn btn-primary' %>
+<% end %>
