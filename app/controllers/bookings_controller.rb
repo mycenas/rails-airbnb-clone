@@ -47,6 +47,25 @@ class BookingsController < ApplicationController
     end
   end
 
+  def cancel
+    @booking = Booking.find(params[:id])
+    if @booking.user == current_user
+      @booking.update(status: 'cancelled')
+      redirect_to my_bookings_path, notice: 'Booking was successfully cancelled.'
+    else
+      redirect_to my_bookings_path, alert: 'You are not authorized to cancel this booking.'
+    end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    if @booking.destroy
+      redirect_to user_requests_path(current_user), notice: 'Booking was successfully deleted.'
+    else
+      redirect_to user_requests_path(current_user), alert: 'Unable to delete booking.'
+    end
+  end
+
   private
 
   def set_booking
@@ -56,4 +75,5 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:status, :quest_id)
   end
+
 end

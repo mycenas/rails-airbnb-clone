@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # More specific routes
   get '/users/requests', to: 'users#requests', as: 'user_requests'
+  get '/users/my_bookings', to: 'users#my_bookings', as: 'my_bookings'
   get 'profile', to: 'pages#profile', as: 'profile'
 
   # Quests routes
@@ -20,7 +21,9 @@ Rails.application.routes.draw do
   post '/bookings/:id/accept', to:'bookings#accept', as: 'accept_booking'
   post '/bookings/:id/decline', to: 'bookings#decline', as: 'decline_booking'
   post '/bookings/:id/complete', to: 'bookings#complete', as: 'complete_booking'
-  
+  post '/bookings/:id/cancel', to:'bookings#cancel', as: 'cancel_booking'
+  delete '/bookings/:id', to: 'bookings#destroy', as: 'delete_booking'
+
   # User routes
   get '/users/:id', to: 'users#show', as: 'user'
 

@@ -1,0 +1,11 @@
+<h1>My Bookings</h1>
+
+<% @bookings.each do |booking| %>
+  <h2><%= link_to booking.quest.name, quest_path(booking.quest) %></h2>
+  <p>DM: <%= booking.quest.user.username %></p>
+  <p>Status: <%= booking.status %></p>
+  
+  <% if booking.status == 'pending' || booking.status == 'accepted' %>
+    <%= link_to 'Cancel', cancel_booking_path(booking), method: :post, class: 'btn btn-danger' %>
+  <% end %>
+<% end %>
