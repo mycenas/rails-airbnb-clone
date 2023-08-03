@@ -1,12 +1,14 @@
 class QuestsController < ApplicationController
 
   def index
+    @quests = Quest.all
     if params[:sort] == 'asc'
       @quests = Quest.order(reward: :asc)
     elsif params[:sort] == 'desc'
       @quests = Quest.order(reward: :desc)
-    else
-      @quests = Quest.all
+    end
+    if params[:query].present?
+      @quests = Quest.search(params[:query])
     end
   end
 
@@ -20,7 +22,7 @@ class QuestsController < ApplicationController
     if @quest.save
       flash[:notice] = "Quest was successfully created!"
       redirect_to quest_path(@quest[:id])
-    else 
+    else
       render :new
     end
   end
