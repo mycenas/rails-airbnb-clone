@@ -1,3 +1,21 @@
+<div class="banner-area">
+  <h1>Quests</h1>
+  <div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: quests_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search for a quest..."
+      %>
+    <%= submit_tag "Search", name: "", class: "btn-purple" %>
+    <% end %>
+    </div>
+  </div>
+  <%= link_to "Create a new quest!", new_quest_path, class: "btn-purple" %>
+  </div>
+</div>
+
 <div class="sort">
   Sort by:
   <%= link_to 'None', quests_path %>
