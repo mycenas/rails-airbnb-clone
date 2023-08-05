@@ -1,20 +1,37 @@
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="card p-4">
-        <h1 class="mb-4"><%= @user.username.capitalize %>'s Profile</h1>
-          <p><%= @user.profile %></p>
-          <p><strong>Level:</strong> <%= @user.level %></p>
-          <p><strong>Abilities:</strong> <%= @user.abilities %></p>
-          <p><strong>Class:</strong> <%= @user.character_class %></p>
-          <p><strong>Purse:</strong> <%= @user.purse %> coins </p>
-          <p><strong>Stats:</strong></p>
-          <ul>
-            <% @user.stats.each do |attribute, value| %>
-              <li><strong><%= attribute.capitalize %>:</strong> <%= value %></li>
-            <% end %>
-          </ul>
-      </div>
+<div class="profile-container">
+    <div class="profile-card">
+        <h1 class="username">
+            <%= @user.username.capitalize %>'s Profile
+        </h1>
+
+        <div class="profile">
+            <p><%= @user.profile %></p>
+        </div>
+
+        <div class="level">
+            <p><strong>Level:</strong> <%= @user.level %></p>
+        </div>
+
+        <div class="character_class">
+            <p><strong>Class:</strong> <%= @user.character_class %></p>
+        </div>
+
+        <div class="abilities">
+            <ul>
+                <div><strong>Abilities:</strong></div>
+                <% @user.abilities.split(',').map(&:strip).each do |ability| %>
+                    <div><%= ability %></div>
+                <% end %>
+            </ul>
+        </div>
+
+        <div class="stats">
+            <p><strong>Stats:</strong></p>
+            <div>
+                <% @user.stats.each do |attribute, value| %>
+                    <div><strong><%= attribute.capitalize%>:</strong> <%= value %></div>
+                <% end %>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

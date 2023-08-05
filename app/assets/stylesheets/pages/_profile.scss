@@ -1,0 +1,36 @@
+.username,  {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: left;
+  padding-left: 240px;
+  padding-top: 40px;
+}
+
+.profile {
+  padding-left: 200px;
+  padding-top: 20px;
+}
+
+.level, .character_class {
+  padding-left: 325px;
+}
+
+.abilities {
+  padding-left: 190px;
+  padding-top: 40px;
+  word-wrap: break-word;
+}
+
+.stats {
+  padding-left: 220px;
+  padding-top: 10px;
+}
+
+.profile-container {
+  background-image: asset_url('old-scrollsheet.png');
+  background-position: left 100px center;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 100%;
+  min-height: 600px;
+}
