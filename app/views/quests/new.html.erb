@@ -41,7 +41,11 @@
             <%= f.number_field :reward, class: "form-control" %>
           </div>
 
-          <%= f.submit "Create Quest", class: "btn-purple" %>
+          <div class="form-group">
+          <%= f.file_field :photo, as: :file %>
+
+          <%= f.submit "Create Quest", class: "btn purple" %>
+
         <% end %>
       </div>
     </div>
