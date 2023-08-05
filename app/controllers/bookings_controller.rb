@@ -38,16 +38,24 @@ class BookingsController < ApplicationController
   end
 
   def complete
-    @booking = Booking.find(params[:id])
-    if @booking.status == 'accepted'
+  @booking = Booking.find(params[:id])
+  if @booking.status == 'accepted'
+    current_user_purse = current_user.purse || 0
+    if current_user_purse >= @booking.quest.reward
       @booking.update(status: 'completed')
+      current_user.purse -= @booking.quest.reward
       @booking.user.purse += @booking.quest.reward
+      current_user.save
       @booking.user.save
       redirect_back(fallback_location: root_path, notice: 'Reward was sent successfully!')
     else
-      redirect_to booking_path(@booking), notice: 'Reward was not sent. Enlistment not accepted yet.'
+      redirect_back(fallback_location: root_path, notice: 'Insufficient coins in your purse.')
     end
+  else
+    redirect_to booking_path(@booking), notice: 'Reward was not sent. Enlistment not accepted yet.'
   end
+end
+
 
   def cancel
     @booking = Booking.find(params[:id])
