@@ -1,22 +1,13 @@
-<h1>Booking Details</h1>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card p-4">
+        <p><strong><%= @booking.user.username.capitalize %></strong> the <%= @booking.user.character_class %>, you have enlisted for the quest <%= link_to @booking.quest.name, quest_path(@booking.quest) %>!</p>
+        
+        <p>Quest Master <strong><%= @booking.quest.user.username.capitalize %></strong> will review your enlistment.</p>
 
-<p>
-  <strong>Quest:</strong>
-  <%= link_to @booking.quest.name, quest_path(@booking.quest) %>
-</p>
-
-<p>
-  <strong>DM:</strong>
-  <%= @booking.quest.user.username %>
-</p>
-
-
-<p>
-  <strong>User:</strong>
-  <%= @booking.user.username %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @booking.status %>
-</p>
+        <%= link_to 'Go to Quest Log', my_bookings_path, class: 'btn-purple' %>
+      </div>
+    </div>
+  </div>
+</div>

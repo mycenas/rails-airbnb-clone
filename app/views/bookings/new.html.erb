@@ -1,24 +1,33 @@
-<h1>Book Quest</h1>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card p-4">
+        <h1 class="mb-4">Enlist for the Quest: <%= @quest.name %></h1>
 
-<%= form_for @booking, url: bookings_path do |f| %>
-  <div class="form-group">
-    <label>Adventurer:</label>
-    <p><%= current_user.username.capitalize %></p>
+        <%= form_for @booking, url: bookings_path do |f| %>
+          <div class="form-group">
+            <p class="form-control-static"><%= current_user.username.capitalize %>, are you prepared to enlist on the quest of the <%= @quest.name %>, for a reward of <%= @quest.reward %> coins? <%= display_coins(@quest.reward) %></p>
+            <p>This quest requires a <strong><%= @quest.requirement.split(',').map(&:strip).join(' or a ') %></strong>, and you are a <%= current_user.character_class %>.
+              <% if @quest.requirement.split(',').map(&:strip).include?(current_user.character_class) %>
+                You are prepared to enlist for this quest!
+              <% else %>
+                You are not prepared!
+              <% end %>
+              </p>
+            <%= f.hidden_field :quest_id, value: @quest.id %>
+            <%= f.hidden_field :status, value: "pending" %>
+          </div>
 
-    <label>Class:</label>
-    <p><%= current_user.character_class %></p>
+          <div class="form-group">
+            <%= f.label :message, "Tell the Quest Master why they should send you on this quest!" %>
+            <%= f.text_area :message, class: "form-control" %>
+          </div>
 
-    <label>Level:</label>
-    <p><%= current_user.level %></p>
+          <%= f.submit 'Enlist', class: 'btn-purple btn-block' %>
+        <% end %>
 
-    <%= f.hidden_field :quest_id, value: @quest.id %>
-    <%= f.hidden_field :status, value: "pending" %>
+        <%= link_to "Back to Quest Board", quests_path, class: "btn-purple mt-3", style: "width: 200px;" %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :message, "Message to the DM" %>
-    <%= f.text_area :message, class: "form-control" %>
-  </div>
-
-  <%= f.submit 'Book Quest', class: 'btn btn-primary' %>
-<% end %>
+</div>

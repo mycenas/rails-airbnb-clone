@@ -28,13 +28,13 @@ class BookingsController < ApplicationController
   def accept
     @booking = Booking.find(params[:id])
     @booking.update(status: 'accepted')
-    redirect_to booking_path(@booking), notice: 'Booking accepted'
+    redirect_back(fallback_location: root_path, notice: 'Booking accepted')
   end
 
   def decline
     @booking = Booking.find(params[:id])
     @booking.update(status: 'declined')
-    redirect_to booking_path(@booking), notice: 'Booking declined'
+    redirect_back(fallback_location: root_path, notice: 'Booking declined')
   end
 
   def complete
