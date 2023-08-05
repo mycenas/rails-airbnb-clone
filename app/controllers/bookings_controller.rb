@@ -7,13 +7,16 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @quest = Quest.find(params[:quest_id])
   end
+
 
   def create
     @booking = Booking.new(booking_params)
-
+    @booking.quest = Quest.find(params[:booking][:quest_id])
+    @booking.user = current_user
     if @booking.save
-      redirect_to bookings_path, notice: 'Booking was successfully created.'
+      redirect_to booking_path(@booking), notice: 'Enlistment was successfully created.'
     else
       render :new
     end
@@ -23,13 +26,46 @@ class BookingsController < ApplicationController
   end
 
   def accept
-    @booking.update(status: "accepted")
-    redirect_to bookings_path, notice: 'Booking was successfully accepted.'
+    @booking = Booking.find(params[:id])
+    @booking.update(status: 'accepted')
+    redirect_back(fallback_location: root_path, notice: 'Enlistment accepted')
   end
 
   def decline
-    @booking.update(status: "declined")
-    redirect_to bookings_path, notice: 'Booking was successfully declined.'
+    @booking = Booking.find(params[:id])
+    @booking.update(status: 'declined')
+    redirect_back(fallback_location: root_path, notice: 'Enlistment declined')
+  end
+
+  def complete
+    @booking = Booking.find(params[:id])
+    if @booking.status == 'accepted'
+      @booking.update(status: 'completed')
+      @booking.user.purse += @booking.quest.reward
+      @booking.user.save
+      redirect_back(fallback_location: root_path, notice: 'Reward was sent successfully!')
+    else
+      redirect_to booking_path(@booking), notice: 'Reward was not sent. Enlistment not accepted yet.'
+    end
+  end
+
+  def cancel
+    @booking = Booking.find(params[:id])
+    if @booking.user == current_user
+      @booking.update(status: 'cancelled')
+      redirect_to my_bookings_path, notice: 'Enlistment was successfully withdrawn.'
+    else
+      redirect_to my_bookings_path, alert: 'You are not able to withdraw this enlistment.'
+    end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    if @booking.destroy
+      redirect_to user_requests_path(current_user), notice: 'Enlistment was sent to the void.'
+    else
+      redirect_to user_requests_path(current_user), alert: 'Unable to remove the enlistment.'
+    end
   end
 
   private
@@ -39,6 +75,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:quest_id, :user_id, :status)
+    params.require(:booking).permit(:message, :status, :quest_id)
   end
+
 end

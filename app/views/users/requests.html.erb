@@ -1,0 +1,34 @@
+<div class="enlistments-banner">
+  <h1>Enlistments</h1>
+  <p class='banner-text'>Here, adventurers enlisted stand, ready for the quest at hand...</p>
+  <div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    </div>
+  </div>
+  </div>
+
+<div class="index-container">
+  <div class="card-row">
+    <% @bookings.each do |booking| %>
+      <div class="card-container">
+        <div class="card colour-card">
+          <img src="<%= asset_path('card-placeholder.png') %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Quest: <%= link_to booking.quest.name, quest_path(booking.quest) %></h5>
+            <p class="card-text"><strong>Enlisting Hero:</strong> <%= booking.user.username.capitalize %>, the level <%= booking.user.level %> <%= booking.user.character_class.capitalize %>.</p>
+            <p class="card-text"><strong>Class Requirement:</strong> <%= booking.quest.requirement %></p>
+            <p class="card-text"><strong>Message:</strong> <%= booking.message %></p>
+            <p class="card-text"><strong>Enlistment Status:</strong> <%= booking.status.capitalize %></p>
+  
+            <% if booking.status == 'pending' %>
+              <%= button_to 'Accept', accept_booking_path(booking), method: :post, class: 'btn-purple' %>
+              <%= button_to 'Decline', decline_booking_path(booking), method: :post, class: 'btn-purple' %>
+            <% elsif booking.status == 'accepted' %>
+              <%= button_to 'Send the hero their reward!', complete_booking_path(booking), method: :post, class: 'btn-purple' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

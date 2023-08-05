@@ -32,7 +32,7 @@
     <p><%= @quest.user.username.capitalize %>
     </div>
 
-<center><%= link_to "Return to Quest List", quests_path, class: "btn-purple" %></center>
+<center><%= link_to 'Enlist on this Quest', new_booking_path(quest_id: @quest.id), class: 'btn btn-primary' %><%= link_to "Return to Quest Board", quests_path, class: "btn-purple" %></center>
 </div>
 </div>
 </div>

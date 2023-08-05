@@ -1,0 +1,32 @@
+<div class="bookings-banner">
+  <h1>Quest Log</h1>
+  <p class='banner-text'>From quests begun to triumphs won..</p>
+  <div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    </div>
+  </div>
+  </div>
+
+<div class="index-container">
+  <div class="card-row">
+    <% @bookings.each do |booking| %>
+      <div class="card-container">
+        <div class="card colour-card ">
+          <img src="<%= asset_path('card-placeholder.png') %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h2 class="card-title">Quest: <%= booking.quest.name %></h2>
+            <p class="card-text"><%= truncate(booking.quest.description, length: 200) %></p>
+            <p class="card-text"><strong>Quest Master:</strong> <%= booking.quest.user.username.capitalize %></p>
+            <p class="card-text"><strong>Requirement:</strong> <%= booking.quest.requirement %></p>
+            <p class="card-text"><strong>Reward:</strong> <%= booking.quest.reward %> coins <%= display_coins(booking.quest.reward) %></p>
+            <p class="card-text"><strong>Enlistment Status:</strong> <%= booking.status.capitalize %></p>
+            
+            <% if booking.status == 'pending' || booking.status == 'accepted' %>
+              <%= button_to 'Withdraw from Quest', cancel_booking_path(booking), method: :post, class: 'btn-purple btn-bottom-right' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
