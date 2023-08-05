@@ -1,28 +1,38 @@
+<div class="bookings-banner">
+  <h1>Post a Quest</h1>
+  <p class='banner-text'>Seeking heroes for a noble quest, come forth and put your skills to the test..</p>
+  <div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    </div>
+  </div>
+  </div>
+
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <div class="card p-4">
-        <h1 class="mb-4">Create a New Quest</h1>
+      <div class="card p-4 colour-card">
+      <%= image_tag 'new-quest.png', alt: 'Quest Scroll', class: 'new-quest', style: 'width: 100px; height: 100px;' %>
+        <p>Quest Master <strong><%= current_user.username.capitalize%></strong>, please enter the details of your quest!</p>
 
         <%= form_for @quest do |f| %>
 
           <div class="form-group">
-            <%= f.label :name %>
+            <%= f.label :name, "Quest Name" %>
             <%= f.text_field :name, class: "form-control" %>
           </div>
 
           <div class="form-group">
-            <%= f.label :description %>
+            <%= f.label :description, "Quest Description" %>
             <%= f.text_area :description, class: "form-control" %>
           </div>
 
           <div class="form-group">
-            <%= f.label :requirement %>
+            <%= f.label :requirement, "Class Requirement" %>
             <%= f.text_area :requirement, class: "form-control" %>
           </div>
 
           <div class="form-group">
-            <%= f.label :location %>
+            <%= f.label :location, "Quest Location" %>
             <%= f.text_field :location, class: "form-control" %>
           </div>
 
@@ -31,9 +41,14 @@
             <%= f.number_field :reward, class: "form-control" %>
           </div>
 
-          <%= f.submit "Create Quest", class: "btn btn-primary btn-block" %>
+          <div class="form-group">
+          <%= f.file_field :photo, as: :file %>
+
+          <%= f.submit "Create Quest", class: "btn purple" %>
+
         <% end %>
       </div>
     </div>
   </div>
 </div>
+<br>
