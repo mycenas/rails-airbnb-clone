@@ -9,6 +9,10 @@
 .profile {
   padding-left: 200px;
   padding-top: 20px;
+
+  p {
+  width: 200px;
+  }
 }
 
 .level, .character_class {
@@ -17,7 +21,7 @@
 
 .abilities {
   padding-left: 190px;
-  padding-top: 40px;
+  padding-top: 33px;
   word-wrap: break-word;
 }
 

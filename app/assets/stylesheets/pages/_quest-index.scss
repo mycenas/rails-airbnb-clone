@@ -101,12 +101,7 @@ h1{
   justify-self: center;
   padding-top: 10px;
   margin: 70px;
-  background-color: rgba(120, 220, 253, 0.276);
-}
-
-.show-image {
-  text-align: center;
-  margin: 0 auto;
+  background-color: rgba(168, 139, 223, 0.276);
 }
 
 .description {
@@ -127,4 +122,22 @@ h1{
 
 .sort {
   font-size: 14px;
+}
+
+.quest-card {
+  display: flex;
+}
+
+.left-side {
+  margin-right: 20px;
+}
+
+
+.right-side {
+  align-self: center;
+}
+
+.show-card-img-top {
+  max-width: 300px;
+  height: auto;
 }

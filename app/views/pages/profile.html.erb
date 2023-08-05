@@ -27,11 +27,9 @@
 
         <div class="stats">
             <p><strong>Stats:</strong></p>
-            <div>
                 <% @user.stats.each do |attribute, value| %>
                     <div><strong><%= attribute.capitalize%>:</strong> <%= value %></div>
                 <% end %>
-            </div>
         </div>
     </div>
 </div>

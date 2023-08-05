@@ -12,7 +12,7 @@
     <% @bookings.each do |booking| %>
       <div class="card-container">
         <div class="card colour-card">
-          <img src="<%= asset_path('card-placeholder.png') %>" class="card-img-top" alt="...">
+          <%= cl_image_tag booking.quest.photo.key, height: 300 %>
           <div class="card-body">
             <h5 class="card-title">Quest: <%= link_to booking.quest.name, quest_path(booking.quest) %></h5>
             <p class="card-text"><strong>Enlisting Hero:</strong> <%= booking.user.username.capitalize %>, the level <%= booking.user.level %> <%= booking.user.character_class.capitalize %>.</p>
