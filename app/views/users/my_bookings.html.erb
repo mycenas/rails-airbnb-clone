@@ -11,7 +11,7 @@
   <div class="card-row">
     <% @bookings.each do |booking| %>
       <div class="card-container">
-        <div class="card">
+        <div class="card colour-card ">
           <img src="<%= asset_path('card-placeholder.png') %>" class="card-img-top" alt="...">
           <div class="card-body">
             <h2 class="card-title">Quest: <%= booking.quest.name %></h2>
