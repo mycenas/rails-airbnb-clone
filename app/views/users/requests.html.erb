@@ -18,7 +18,7 @@
             <p class="card-text"><strong>Enlisting Hero:</strong> <%= booking.user.username.capitalize %>, the level <%= booking.user.level %> <%= booking.user.character_class.capitalize %>.</p>
             <p class="card-text"><strong>Class Requirement:</strong> <%= booking.quest.requirement %></p>
             <p class="card-text"><strong>Message:</strong> <%= booking.message %></p>
-            <p class="card-text"><strong>Enlistment Status:</strong> <%= booking.status.capitalize %></p>
+            <strong>Enlistment Status:<p class="card-text <%= status_color_class(booking.status) %>"><%= booking.status.capitalize %></strong></p>
   
             <% if booking.status == 'pending' %>
               <%= button_to 'Accept', accept_booking_path(booking), method: :post, class: 'btn-purple' %>

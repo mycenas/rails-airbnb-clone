@@ -19,7 +19,7 @@
             <p class="card-text"><strong>Quest Master:</strong> <%= booking.quest.user.username.capitalize %></p>
             <p class="card-text"><strong>Requirement:</strong> <%= booking.quest.requirement %></p>
             <p class="card-text"><strong>Reward:</strong> <%= booking.quest.reward %> coins <%= display_coins(booking.quest.reward) %></p>
-            <p class="card-text"><strong>Enlistment Status:</strong> <%= booking.status.capitalize %></p>
+            <strong>Enlistment Status:<p class="card-text <%= status_color_class(booking.status) %>"><%= booking.status.capitalize %></strong></p>
             
             <% if booking.status == 'pending' || booking.status == 'accepted' %>
               <%= button_to 'Withdraw from Quest', cancel_booking_path(booking), method: :post, class: 'btn-purple btn-bottom-right' %>
