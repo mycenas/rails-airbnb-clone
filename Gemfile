@@ -81,3 +81,7 @@ gem "devise"
 gem 'httparty'
 
 gem "pg_search"
+
+gem "dotenv-rails", groups: [:development, :test]
+
+gem "cloudinary"

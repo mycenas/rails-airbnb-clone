@@ -27,7 +27,7 @@
     <% @quests.each do |quest| %>
       <div class="card-container">
         <div class="card">
-          <img src="<%= asset_path('card-placeholder.png') %>" class="card-img-top" alt="...">
+          <%= cl_image_tag quest.photo.key, class:"card-img-top", height: 300, width: 400, crop: :fill %>
           <div class="card-body">
             <p class="card-title"><%= quest.name %></p>
             <p class="card-text"><%= truncate(quest.description, length: 120) %></p>
