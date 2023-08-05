@@ -9,19 +9,13 @@
           <%= link_to image_tag('logo.png', alt: 'Logo', class: 'navbar-logo'), root_path, class: 'nav-link' %>
         </li>
       <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to 'Quests', quests_path, class: "nav-link" %>
+          <%= link_to 'Quest Board', quests_path, class: "nav-link" %>
         </li>
-        <% if current_user.role == 'dm' %>
-          <li class="nav-item">
-            <%= link_to "Post a quest", new_quest_path, class: "nav-link" %>
-          </li>
-        <% end %>
         <li class="nav-item">
           <% if current_user.role == 'dm' %>
-            <%= link_to 'Bookings', user_requests_path, class: "nav-link" %>
+            <%= link_to 'Enlistments', user_requests_path, class: "nav-link" %>
           <% else %>
-            <%= link_to 'Bookings', my_bookings_path, class: "nav-link" %>
+            <%= link_to 'Quest Log', my_bookings_path, class: "nav-link" %>
           <% end %>
         </li>
         <li class="nav-item">
