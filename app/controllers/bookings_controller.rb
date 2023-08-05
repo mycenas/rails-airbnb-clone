@@ -56,7 +56,6 @@ class BookingsController < ApplicationController
   end
 end
 
-
   def cancel
     @booking = Booking.find(params[:id])
     if @booking.user == current_user

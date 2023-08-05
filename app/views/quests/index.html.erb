@@ -31,8 +31,12 @@
   <div class="card-row">
     <% @quests.each do |quest| %>
       <div class="card-container">
-        <div class="card card-colour">
-          <%= cl_image_tag quest.photo.key, class:"card-img-top", height: 300, width: 400, crop: :fill %>
+        <div class="card colour-card">
+          <% if quest.photo.key %>
+            <%= cl_image_tag quest.photo.key, class:"card-img-top", height: 400, width: 300 %>
+          <% else %>
+            <%= image_tag 'card-placeholder.png', class:"card-img-top", height: 400, width: 300  %>
+          <% end %>
           <div class="card-body">
             <p class="card-title"><%= quest.name %></p>
             <p class="card-text"><%= truncate(quest.description, length: 120) %></p>

@@ -1,42 +1,39 @@
-<%# as a user i want to view a specific quest %>
-
 <div class="top-container">
-<div class="container-md"><br>
-
-  <center><h1><%= @quest.name %></h1><br>
-  <div class="show-image">
-  <img src="<%= asset_path('card-placeholder.png') %>" class="card-img-top show-image"  alt="...">
-  </div></center>
-
-    <div class="description">
-    <p><%= @quest.description %></p>
-
-
-    <div>
-    <strong>Class Requirement</strong>
-    <p><%= @quest.requirement %>
-    <br>
-
-    <div>
-    <strong>Location</strong>
-    <p><%= @quest.location %>
+  <div class="container-md">
+    <div class="quest-card">
+      <div class="left-side">
+      <h1><%= @quest.name %></h1><br>
+        <% if @quest.photo.key %>
+          <%= cl_image_tag @quest.photo.key, class:"show-card-img-top", height: 400, width: 300 %>
+        <% else %>
+          <%= image_tag 'card-placeholder.png', class:"show-card-img-top", height: 400, width: 300 %>
+        <% end %>
+      </div>
+      <div class="right-side">
+        <div class="description">
+          <p><%= @quest.description %></p>
+          <div class="details">
+            <div>
+              <strong>Class Requirement</strong>
+              <p><%= @quest.requirement %></p>
+            </div>
+            <div>
+              <strong>Location</strong>
+              <p><%= @quest.location %></p>
+            </div>
+            <div>
+              <strong>Reward</strong>
+              <p><%= @quest.reward %> coins <%= display_coins(@quest.reward) %></p>
+            </div>
+            <div>
+              <strong>Quest Master</strong>
+              <p><%= @quest.user.username.capitalize %></p>
+            </div>
+          </div>
+          <%= link_to 'Enlist on this Quest', new_booking_path(quest_id: @quest.id), class: 'btn-purple' %>
+          <%= link_to "Return to Quest Board", quests_path, class: "btn-purple" %>
+        </div>
+      </div>
     </div>
-
-    <div>
-    <strong>Reward</strong>
-    <p><%= @quest.reward %> coins <%= display_coins(@quest.reward) %> <p>
-    </div>
-
-    <div>
-    <strong>Quest Master</strong>
-    <p><%= @quest.user.username.capitalize %>
-    </div>
-
-<center><%= link_to 'Enlist on this Quest', new_booking_path(quest_id: @quest.id), class: 'btn-purple' %></center>
-<br>
-<center><%= link_to "Return to Quest Board", quests_path, class: "btn-purple" %></center>
-<br>
+  </div>
 </div>
-</div>
-</div>
-<br>
